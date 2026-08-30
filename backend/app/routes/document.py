@@ -3,8 +3,9 @@ from tempfile import NamedTemporaryFile
 
 from fastapi import APIRouter, File, HTTPException, UploadFile
 
-from backend.app.utils.document_loader import load_contract
 from backend.app.analysis.contract_analyzer import analyze_contract
+from backend.app.schemas.analysis import FileAnalysisResponse
+from backend.app.utils.document_loader import load_contract
 
 
 router = APIRouter()
@@ -13,7 +14,10 @@ router = APIRouter()
 ALLOWED_EXTENSIONS = {".txt", ".pdf", ".docx"}
 
 
-@router.post("/api/analyze-file")
+@router.post(
+    "/api/analyze-file",
+    response_model=FileAnalysisResponse,
+)
 async def analyze_contract_file(file: UploadFile = File(...)):
     """
     Upload a TXT, PDF, or DOCX contract and analyze it.
