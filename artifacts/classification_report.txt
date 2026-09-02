@@ -1,0 +1,46 @@
+                                   precision    recall  f1-score   support
+
+       Affiliate License-Licensee       0.00      0.00      0.00        76
+       Affiliate License-Licensor       0.00      0.00      0.00        77
+                   Agreement Date       0.42      1.00      0.59        70
+                  Anti-Assignment       0.10      0.73      0.18        77
+                     Audit Rights       0.00      0.00      0.00        76
+                 Cap On Liability       0.00      0.00      0.00        77
+                Change Of Control       0.00      0.00      0.00        76
+Competitive Restriction Exception       0.00      0.00      0.00        77
+              Covenant Not To Sue       0.00      0.00      0.00        76
+                    Document Name       1.00      1.00      1.00        76
+                   Effective Date       0.00      0.00      0.00        54
+                      Exclusivity       0.00      0.00      0.00        77
+                  Expiration Date       0.88      0.14      0.24        50
+                    Governing Law       1.00      1.00      1.00        65
+                        Insurance       0.00      0.00      0.00        76
+          Ip Ownership Assignment       0.00      0.00      0.00        76
+ Irrevocable Or Perpetual License       0.00      0.00      0.00        77
+               Joint Ip Ownership       0.00      0.00      0.00        76
+                    License Grant       0.00      0.00      0.00        76
+               Liquidated Damages       0.00      0.00      0.00        76
+               Minimum Commitment       0.00      0.00      0.00        77
+              Most Favored Nation       0.00      0.00      0.00        76
+          No-Solicit Of Customers       0.00      0.00      0.00        77
+          No-Solicit Of Employees       0.00      0.00      0.00        77
+                      Non-Compete       0.00      0.00      0.00        77
+                Non-Disparagement       0.00      0.00      0.00        77
+         Non-Transferable License       0.00      0.00      0.00        76
+                          Parties       1.00      1.00      1.00        76
+        Post-Termination Services       0.00      0.00      0.00        76
+               Price Restrictions       0.00      0.00      0.00        76
+                     Renewal Term       1.00      0.92      0.96        25
+           Revenue/Profit Sharing       0.00      0.00      0.00        77
+                   Rofr/Rofo/Rofn       0.00      0.00      0.00        76
+               Source Code Escrow       0.00      0.00      0.00        77
+      Termination For Convenience       0.00      0.00      0.00        76
+          Third Party Beneficiary       0.00      0.00      0.00        76
+               Uncapped Liability       0.00      0.00      0.00        77
+Unlimited/All-You-Can-Eat-License       0.04      0.94      0.07        77
+               Volume Restriction       0.00      0.00      0.00        76
+                Warranty Duration       0.00      0.00      0.00        77
+
+                         accuracy                           0.15      2940
+                        macro avg       0.14      0.17      0.13      2940
+                     weighted avg       0.11      0.15      0.11      2940
