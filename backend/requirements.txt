@@ -2,3 +2,6 @@ fastapi
 uvicorn[standard]
 python-multipart
 sentence-transformersfaiss-cpu
+pytesseract
+pdf2image
+spacy
