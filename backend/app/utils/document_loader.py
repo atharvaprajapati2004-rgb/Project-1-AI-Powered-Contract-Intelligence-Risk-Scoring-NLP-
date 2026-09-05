@@ -22,8 +22,10 @@ def load_txt(file_path: str) -> str:
 
 
 def load_pdf(file_path: str) -> str:
-    """Extract text from a PDF file."""
+    """Extract text from a PDF, using OCR for scanned PDFs."""
     import fitz
+    import pytesseract
+    from pdf2image import convert_from_path
 
     path = Path(file_path)
 
@@ -32,11 +34,29 @@ def load_pdf(file_path: str) -> str:
     pages = []
 
     for page in document:
-        pages.append(page.get_text())
+        text = page.get_text().strip()
+        if text:
+            pages.append(text)
 
     document.close()
 
-    return "\n".join(pages)
+    extracted_text = "\n".join(pages).strip()
+
+    # If normal PDF extraction worked, return the text.
+    if extracted_text:
+        return extracted_text
+
+    # Otherwise, treat the PDF as a scanned document and use OCR.
+    images = convert_from_path(str(path), dpi=200)
+
+    ocr_pages = []
+
+    for image in images:
+        text = pytesseract.image_to_string(image).strip()
+        if text:
+            ocr_pages.append(text)
+
+    return "\n".join(ocr_pages)
 
 
 def load_docx(file_path: str) -> str:
