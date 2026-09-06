@@ -1,7 +1,8 @@
 fastapi
 uvicorn[standard]
 python-multipart
-sentence-transformersfaiss-cpu
+sentence-transformers
+faiss-cpu
 pytesseract
 pdf2image
 spacy
