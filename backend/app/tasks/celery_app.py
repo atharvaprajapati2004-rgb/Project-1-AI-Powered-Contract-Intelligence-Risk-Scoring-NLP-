@@ -1,10 +1,18 @@
+import os
+
 from celery import Celery
 
+broker_url = os.getenv("CELERY_BROKER_URL", "redis://localhost:6379/0")
+result_backend = os.getenv(
+    "CELERY_RESULT_BACKEND",
+    "redis://localhost:6379/0",
+)
 
 celery_app = Celery(
     "contract_intelligence",
-    broker="redis://localhost:6379/0",
-    backend="redis://localhost:6379/0",
+    broker=broker_url,
+    backend=result_backend,
+    include=["backend.app.tasks.contract_tasks"],
 )
 
 celery_app.conf.task_serializer = "json"

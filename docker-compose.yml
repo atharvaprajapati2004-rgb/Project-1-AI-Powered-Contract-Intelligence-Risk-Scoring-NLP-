@@ -1,0 +1,27 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: contract-redis
+    ports:
+      - "6379:6379"
+
+  api:
+    build: .
+    container_name: contract-api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+
+  worker:
+    build: .
+    container_name: contract-worker
+    depends_on:
+      - redis
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+    command: celery -A backend.app.tasks.celery_app.celery_app worker --loglevel=info
