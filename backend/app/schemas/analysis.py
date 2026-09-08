@@ -9,6 +9,7 @@ class ContractAnalysisResponse(BaseModel):
     risk_count: int = Field(default=0, ge=0)
     clauses: list[dict[str, Any]] = Field(default_factory=list)
     risks: list[dict[str, Any]] = Field(default_factory=list)
+    entities: list[dict[str, Any]] = Field(default_factory=list)
 
 
 class FileAnalysisResponse(BaseModel):
